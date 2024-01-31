@@ -38,7 +38,6 @@ function App() {
 
 					const json = await response.json();
 					setIpData(json);
-					console.log(json);
 				} catch (error) {
 					console.error(error);
 				}

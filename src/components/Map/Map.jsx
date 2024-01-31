@@ -2,10 +2,10 @@
 import styled from "styled-components";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import LocationIcon from "../../assets/images/icon-location.svg";
 
-function Map({ latitude = 51.5072, longitude = 0.1276 }) {
+function Map({ latitude = 40.650002, longitude = -73.949997 }) {
 	const position = [latitude, longitude];
 
 	const markerIcon = new L.Icon({
@@ -25,7 +25,9 @@ function Map({ latitude = 51.5072, longitude = 0.1276 }) {
 					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 					attribution="Map data © OpenStreetMap contributors"
 				/>
-				<Marker position={position} icon={markerIcon} />
+				<Marker position={position} icon={markerIcon}>
+					<Popup>{`lat: ${latitude}, lon: ${longitude}`}</Popup>
+				</Marker>
 			</MapWrapper>
 		</>
 	);

@@ -31,8 +31,9 @@ const Wrapper = styled.div`
 	background-size: cover;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
+	border-bottom: 1px solid var(--dark-gray);
+	padding-top: 40px;
 
 	& h1 {
 		color: var(--white);
@@ -50,6 +51,10 @@ const Input = styled.input`
 	border: none;
 	padding: 12px 20px;
 	font-size: 18px;
+
+	@media (max-width: 550px) {
+		width: 100%;
+	}
 `;
 
 const SubmitBtn = styled.button`

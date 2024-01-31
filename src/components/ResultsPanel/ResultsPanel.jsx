@@ -13,7 +13,7 @@ function ResultsPanel({ data }) {
 					<Title>location</Title>
 					<div>
 						<Result>{data.location.city || "Brooklyn, "}</Result>
-						<Result>{data.location.region || "NY 10001"}</Result>
+						<Result>{data.location.region || "New York"}</Result>
 					</div>
 				</Container>
 				<Container>
@@ -39,6 +39,14 @@ const Wrapper = styled.div`
 	top: 30%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+
+	@media (max-width: 550px) {
+		top: 38%;
+	}
+
+	@media (max-width: 375px) {
+		top: 52%;
+	}
 `;
 
 const FlexContainer = styled.div`
@@ -49,21 +57,43 @@ const FlexContainer = styled.div`
 	gap: 24px;
 	border-radius: 10px;
 	padding: 24px;
+	box-shadow: 0.3em 0.3em 1em var(--dark-gray);
+
+	@media (max-width: 550px) {
+		flex-direction: column;
+		text-align: center;
+		gap: 16px;
+		padding-left: 50px;
+		padding-right: 50px;
+	}
 `;
 
 const Container = styled.div`
-	overflow-wrap: break-word;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+
 	&:not(:last-of-type) {
 		border-right: 1px solid var(--gray);
 		padding-right: 18px;
+
+		@media (max-width: 550px) {
+			border: none;
+			padding: 0;
+		}
+	}
+
+	@media (max-width: 550px) {
+		gap: 6px;
 	}
 `;
 
 const Title = styled.p`
 	color: var(--gray);
-	font-size: 0.6rem;
+	font-size: 0.8rem;
 	font-weight: 700;
 	text-transform: uppercase;
+	letter-spacing: 1.2px;
 `;
 
 const Result = styled.p`
